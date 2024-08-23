@@ -9,6 +9,12 @@ export class CustomersProvider
 {
   todayBirthdays = [
     {
+      name: 'Vinicios Lorencena Biluca',
+      age: 24,
+      gender: 'Male',
+      profile_photo: 'https://randomuser.me/api/portraits/men/1.jpg',
+    },
+    {
       name: 'Jane Doe',
       age: 24,
       gender: 'Female',
