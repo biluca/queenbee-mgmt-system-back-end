@@ -17,9 +17,26 @@ let CustomersProcessor = class CustomersProcessor extends genericProcessor_commo
         super();
         this.customersProvider = customersProvider;
     }
-    async process() {
-        this.logger.info(`Got into the CustomersProcessor.process()`);
-        return this.customersProvider.getTodayBirthdays();
+    create(customer) {
+        return this.customersProvider.create(customer);
+    }
+    getAll() {
+        return this.customersProvider.getAll();
+    }
+    getById(uuid) {
+        return this.customersProvider.getById(uuid);
+    }
+    getByFilters(filters) {
+        return this.customersProvider.getByFilters(filters);
+    }
+    getBySearch(search) {
+        return this.customersProvider.getBySearch(search);
+    }
+    updateById(customer) {
+        return this.customersProvider.updateById(customer);
+    }
+    deleteById(uuid) {
+        return this.customersProvider.deleteById(uuid);
     }
 };
 exports.CustomersProcessor = CustomersProcessor;

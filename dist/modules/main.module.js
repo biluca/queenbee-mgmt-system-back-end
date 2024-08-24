@@ -9,12 +9,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MainModule = void 0;
 const common_1 = require("@nestjs/common");
 const api_module_1 = require("./api/controllers/api.module");
+const config_1 = require("@nestjs/config");
 let MainModule = class MainModule {
 };
 exports.MainModule = MainModule;
 exports.MainModule = MainModule = __decorate([
     (0, common_1.Module)({
-        imports: [api_module_1.ApiModule],
+        imports: [config_1.ConfigModule.forRoot(), api_module_1.ApiModule],
         controllers: [],
         providers: [],
     })

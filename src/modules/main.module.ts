@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ApiModule } from './api/controllers/api.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [ApiModule],
+  imports: [ConfigModule.forRoot(), ApiModule],
   controllers: [],
   providers: [],
 })
