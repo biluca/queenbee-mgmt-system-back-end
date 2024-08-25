@@ -6,19 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiModule = void 0;
+exports.AuthProvider = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const customers_module_1 = require("../../customers/customers.module");
-const auth_module_1 = require("../../auth/auth.module");
-let ApiModule = class ApiModule {
+const genericProvider_commons_1 = require("../common/genericProvider.commons");
+const auth_service_1 = require("../services/auth.service");
+let AuthProvider = class AuthProvider extends genericProvider_commons_1.GenericProvider {
+    constructor() {
+        super(...arguments);
+        this.authService = new auth_service_1.AuthService();
+    }
+    getToken(user) {
+        return this.authService.getToken(user);
+    }
 };
-exports.ApiModule = ApiModule;
-exports.ApiModule = ApiModule = __decorate([
-    (0, common_1.Module)({
-        imports: [customers_module_1.CustomersModule, auth_module_1.AuthModule],
-        controllers: [app_controller_1.AppController],
-        providers: [],
-    })
-], ApiModule);
-//# sourceMappingURL=api.module.js.map
+exports.AuthProvider = AuthProvider;
+exports.AuthProvider = AuthProvider = __decorate([
+    (0, common_1.Injectable)()
+], AuthProvider);
+//# sourceMappingURL=auth.provider.js.map

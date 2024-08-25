@@ -10,7 +10,17 @@ exports.MainModule = void 0;
 const common_1 = require("@nestjs/common");
 const api_module_1 = require("./api/controllers/api.module");
 const config_1 = require("@nestjs/config");
+const authorizator_middleware_1 = require("../middleware/authorizator.middleware");
 let MainModule = class MainModule {
+    configure(consumer) {
+        consumer
+            .apply(authorizator_middleware_1.AuthorizatorMiddleware)
+            .exclude({ path: '/auth/login', method: common_1.RequestMethod.ALL }, { path: '/auth/user', method: common_1.RequestMethod.ALL })
+            .forRoutes({
+            path: '*',
+            method: common_1.RequestMethod.ALL,
+        });
+    }
 };
 exports.MainModule = MainModule;
 exports.MainModule = MainModule = __decorate([
