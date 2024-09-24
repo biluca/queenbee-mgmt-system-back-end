@@ -1,4 +1,4 @@
-export interface CRUDProvider {
+export interface CRUDProviderInterface {
   create(object: any): Promise<any>;
   getAll(): Promise<any>;
   getByFilters(filters: any): Promise<any>;

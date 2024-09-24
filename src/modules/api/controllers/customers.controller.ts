@@ -18,7 +18,7 @@ import { CustomersProcessor } from 'src/modules/customers/processor/customers.pr
 import { CustomerDTO } from '../dto/customer.dto';
 import { CustomerBuilder } from 'src/modules/customers/model/customer.builder';
 import { CRUDController } from 'src/common/interfaces/crudController.interface';
-import { CRUDProvider } from 'src/common/interfaces/crudProvider.interface';
+import { CRUDProviderInterface } from 'src/common/interfaces/crudProvider.interface';
 import { CustomerUpdateDTO } from '../dto/customerUpdate.dto';
 
 @Controller('customer')
@@ -29,7 +29,7 @@ export class CustomersController
   constructor(
     @Inject('CustomersProviderInterface')
     private readonly customersProvider: CustomersProviderInterface &
-      CRUDProvider,
+      CRUDProviderInterface,
   ) {
     super();
   }

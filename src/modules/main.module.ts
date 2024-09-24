@@ -4,7 +4,7 @@ import {
   NestModule,
   RequestMethod,
 } from '@nestjs/common';
-import { ApiModule } from './api/controllers/api.module';
+import { ApiModule } from './api/api.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthorizatorMiddleware } from 'src/middleware/authorizator.middleware';
 

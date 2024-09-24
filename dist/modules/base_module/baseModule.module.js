@@ -6,19 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ApiModule = void 0;
+exports.BaseModuleModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const customers_module_1 = require("../../customers/customers.module");
-const auth_module_1 = require("../../auth/auth.module");
-let ApiModule = class ApiModule {
+const basemodule_controller_1 = require("../api/controllers/basemodule.controller");
+const basemodule_provider_1 = require("../../providers/basemodule.provider");
+let BaseModuleModule = class BaseModuleModule {
 };
-exports.ApiModule = ApiModule;
-exports.ApiModule = ApiModule = __decorate([
+exports.BaseModuleModule = BaseModuleModule;
+exports.BaseModuleModule = BaseModuleModule = __decorate([
     (0, common_1.Module)({
-        imports: [customers_module_1.CustomersModule, auth_module_1.AuthModule],
-        controllers: [app_controller_1.AppController],
-        providers: [],
+        imports: [],
+        controllers: [basemodule_controller_1.BaseModuleController],
+        providers: [
+            {
+                provide: 'BaseModuleProviderInterface',
+                useClass: basemodule_provider_1.BaseModuleProvider,
+            },
+        ],
     })
-], ApiModule);
-//# sourceMappingURL=api.module.js.map
+], BaseModuleModule);
+//# sourceMappingURL=baseModule.module.js.map

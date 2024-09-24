@@ -3,7 +3,7 @@ import { GenericProcessor } from 'src/common/genericProcessor.commons';
 import { CustomersProviderInterface } from '../interface/customers.interface';
 import { Customer } from '../model/customer.model';
 import { CRUDProcessor } from 'src/common/interfaces/crudProcessor.interface';
-import { CRUDProvider } from 'src/common/interfaces/crudProvider.interface';
+import { CRUDProviderInterface } from 'src/common/interfaces/crudProvider.interface';
 
 @Injectable()
 export class CustomersProcessor
@@ -12,7 +12,7 @@ export class CustomersProcessor
 {
   constructor(
     private readonly customersProvider: CustomersProviderInterface &
-      CRUDProvider,
+      CRUDProviderInterface,
   ) {
     super();
   }

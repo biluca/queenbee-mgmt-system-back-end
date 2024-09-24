@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { QueryBuilder } from 'src/common/database/queryBuilder.common';
 import { GenericProvider } from 'src/common/genericProvider.commons';
-import { CRUDProvider } from 'src/common/interfaces/crudProvider.interface';
+import { CRUDProviderInterface } from 'src/common/interfaces/crudProvider.interface';
 import { CustomersProviderInterface } from 'src/modules/customers/interface/customers.interface';
 import { Customer } from 'src/modules/customers/model/customer.model';
 import { PostgresService } from 'src/services/postgres.service';
@@ -9,7 +9,7 @@ import { PostgresService } from 'src/services/postgres.service';
 @Injectable()
 export class CustomersProvider
   extends GenericProvider
-  implements CustomersProviderInterface, CRUDProvider
+  implements CustomersProviderInterface, CRUDProviderInterface
 {
   private readonly postgresService = new PostgresService();
   private readonly queryBuilder = new QueryBuilder();
