@@ -17,26 +17,26 @@ let AppointmentProcessor = class AppointmentProcessor extends genericProcessor_c
         super();
         this.appointmentProvider = appointmentProvider;
     }
-    create(object) {
-        throw new Error('Method not implemented.');
+    create(appointment) {
+        return this.appointmentProvider.create(appointment);
     }
     getAll() {
-        throw new Error('Method not implemented.');
+        return this.appointmentProvider.getAll();
     }
     getById(uuid) {
-        throw new Error('Method not implemented.');
+        return this.appointmentProvider.getById(uuid);
     }
     getByFilters(filters) {
-        throw new Error('Method not implemented.');
+        return this.appointmentProvider.getByFilters(filters);
     }
     getBySearch(search) {
-        throw new Error('Method not implemented.');
+        return this.appointmentProvider.getBySearch(search);
     }
-    updateById(object) {
-        throw new Error('Method not implemented.');
+    updateById(appointment) {
+        return this.appointmentProvider.updateById(appointment);
     }
     deleteById(uuid) {
-        throw new Error('Method not implemented.');
+        return this.appointmentProvider.deleteById(uuid);
     }
 };
 exports.AppointmentProcessor = AppointmentProcessor;

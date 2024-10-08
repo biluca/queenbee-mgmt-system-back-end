@@ -3,6 +3,7 @@ import { GenericProcessor } from 'src/common/genericProcessor.commons';
 import { AppointmentProviderInterface } from '../interface/appointment.interface';
 import { CRUDProcessor } from 'src/common/interfaces/crudProcessor.interface';
 import { CRUDProviderInterface } from 'src/common/interfaces/crudProvider.interface';
+import { Appointment } from '../model/appointment.model';
 
 @Injectable()
 export class AppointmentProcessor
@@ -15,25 +16,25 @@ export class AppointmentProcessor
   ) {
     super();
   }
-  create(object: any): Promise<any> {
-    throw new Error('Method not implemented.');
+  create(appointment: Appointment): Promise<any> {
+    return this.appointmentProvider.create(appointment);
   }
   getAll(): Promise<any> {
-    throw new Error('Method not implemented.');
+    return this.appointmentProvider.getAll();
   }
   getById(uuid: string): Promise<any> {
-    throw new Error('Method not implemented.');
+    return this.appointmentProvider.getById(uuid);
   }
   getByFilters(filters: any): Promise<any> {
-    throw new Error('Method not implemented.');
+    return this.appointmentProvider.getByFilters(filters);
   }
   getBySearch(search: any): Promise<any> {
-    throw new Error('Method not implemented.');
+    return this.appointmentProvider.getBySearch(search);
   }
-  updateById(object: any): Promise<any> {
-    throw new Error('Method not implemented.');
+  updateById(appointment: Appointment): Promise<any> {
+    return this.appointmentProvider.updateById(appointment);
   }
   deleteById(uuid: string): Promise<any> {
-    throw new Error('Method not implemented.');
+    return this.appointmentProvider.deleteById(uuid);
   }
 }
