@@ -11,11 +11,11 @@ const common_1 = require("@nestjs/common");
 const pg_1 = require("pg");
 const genericService_commons_1 = require("../common/genericService.commons");
 let PostgresService = class PostgresService extends genericService_commons_1.GenericService {
-    async runSQL(table, sql) {
+    async runSQL(table, sql, unique = false) {
         this.logger.info(`Got into PostgresService.runSQL()`);
         const myPool = await this.getPool();
         const queryResult = await myPool.query(sql);
-        return this.resolveResult(queryResult, table);
+        return this.resolveResult(queryResult, table, unique);
     }
     async getPool() {
         const pool = new pg_1.Pool({
@@ -23,12 +23,12 @@ let PostgresService = class PostgresService extends genericService_commons_1.Gen
         });
         return pool;
     }
-    resolveResult(result, table) {
+    resolveResult(result, table, unique = false) {
         if (!result) {
             return {};
         }
         if (result['command'] == 'SELECT') {
-            if (result['rowCount'] == 1) {
+            if (unique) {
                 return result['rows'][0];
             }
             return result['rows'];

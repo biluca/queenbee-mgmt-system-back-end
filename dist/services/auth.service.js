@@ -37,8 +37,9 @@ let AuthService = class AuthService extends genericService_commons_1.GenericServ
     async verifyUser(user) {
         const table = 'users';
         const filters = { username: user.username };
+        const unique = true;
         const findUserQuery = this.queryBuilder.buildFilteredSelect(table, filters);
-        const foundUser = await this.postgresService.runSQL(table, findUserQuery);
+        const foundUser = await this.postgresService.runSQL(table, findUserQuery, unique);
         if (!foundUser['username']) {
             throw new genericError_model_1.GenericError(404, 'Usuário Não Encontrado!');
         }

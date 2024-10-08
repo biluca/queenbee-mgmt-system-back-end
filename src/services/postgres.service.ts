@@ -4,12 +4,12 @@ import { GenericService } from 'src/common/genericService.commons';
 
 @Injectable()
 export class PostgresService extends GenericService {
-  async runSQL(table: string, sql: string) {
+  async runSQL(table: string, sql: string, unique: boolean = false) {
     this.logger.info(`Got into PostgresService.runSQL()`);
 
     const myPool = await this.getPool();
     const queryResult = await myPool.query(sql);
-    return this.resolveResult(queryResult, table);
+    return this.resolveResult(queryResult, table, unique);
   }
 
   private async getPool() {
@@ -20,12 +20,15 @@ export class PostgresService extends GenericService {
     return pool;
   }
 
-  private resolveResult(result: any, table: string) {
+  private resolveResult(result: any, table: string, unique: boolean = false) {
     if (!result) {
       return {};
     }
 
     if (result['command'] == 'SELECT') {
+      if (unique) {
+        return result['rows'][0];
+      }
       return result['rows'];
     }
 

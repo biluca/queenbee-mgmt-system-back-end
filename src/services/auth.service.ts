@@ -34,10 +34,15 @@ export class AuthService extends GenericService {
   private async verifyUser(user: User) {
     const table = 'users';
     const filters = { username: user.username };
+    const unique = true;
 
     const findUserQuery = this.queryBuilder.buildFilteredSelect(table, filters);
 
-    const foundUser = await this.postgresService.runSQL(table, findUserQuery);
+    const foundUser = await this.postgresService.runSQL(
+      table,
+      findUserQuery,
+      unique,
+    );
 
     if (!foundUser['username']) {
       throw new GenericError(404, 'Usuário Não Encontrado!');
