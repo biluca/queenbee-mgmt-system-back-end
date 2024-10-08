@@ -26,9 +26,6 @@ export class PostgresService extends GenericService {
     }
 
     if (result['command'] == 'SELECT') {
-      if (result['rowCount'] == 1) {
-        return result['rows'][0];
-      }
       return result['rows'];
     }
 
