@@ -1,4 +1,4 @@
-import { GenericModel } from 'src/common/model/genericModel.model';
+import { GenericModel } from "../../../common/model/genericModel.model";
 
 export class Appointment extends GenericModel {
   uuid: string;

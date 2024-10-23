@@ -7,9 +7,10 @@ import {
 import { ApiModule } from './api/api.module';
 import { ConfigModule } from '@nestjs/config';
 import { AuthorizatorMiddleware } from 'src/middleware/authorizator.middleware';
+import { DataBaseModule } from './database/database.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), ApiModule],
+  imports: [ConfigModule.forRoot(), ApiModule, DataBaseModule],
   controllers: [],
   providers: [],
 })

@@ -1,1 +1,0 @@
-{"version":3,"file":"basemodule.service.js","sourceRoot":"","sources":["../../src/services/basemodule.service.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAA4C;AAC5C,6EAAmE;AAG5D,IAAM,iBAAiB,GAAvB,MAAM,iBAAkB,SAAQ,uCAAc;IACnD,iBAAiB;QACf,OAAO,OAAO,CAAC,OAAO,CAAC,yBAAyB,CAAC,CAAC;IACpD,CAAC;CACF,CAAA;AAJY,8CAAiB;4BAAjB,iBAAiB;IAD7B,IAAA,mBAAU,GAAE;GACA,iBAAiB,CAI7B"}

@@ -14,7 +14,7 @@ export class PostgresService extends GenericService {
 
   private async getPool() {
     const pool = new Pool({
-      connectionString: process.env.POSTGRES_URL,
+      connectionString: process.env.POSTGRES_URLZ,
     });
 
     return pool;
