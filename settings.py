@@ -27,11 +27,46 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [],
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+# Jazzmin Settings
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "Library Admin",
+    "site_header": "Bee.M",
+    "site_logo": "bee_m.png",
+    "site_logo_classes": "img-rounded",
+
+    "topmenu_links": [
+            {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+            {"app": "queenbee_api"},
+            {"model": "queenbee_api.Appointment"},
+            {"model": "queenbee_api.Customer"},
+            {"model": "queenbee_api.Finance"},
+
+    ],
+
+    "hide_apps": ["auth"],
+
+
+
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "lux",
+}
+
 
 # Application definition
 API_APPS = ['queenbee_api',]
 
 DJANGO_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -1,6 +1,7 @@
 from django.contrib import admin
-
 from queenbee_api.models import Appointment, Customer, Finance
+
+admin.site.site_header = "Bee.M"
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
@@ -17,6 +18,9 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = [
         "name",
     ]
+
+    
+
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
     list_display = [

@@ -2,6 +2,7 @@ import locale
 from uuid import uuid4
 from django.db import models
 from django.db import models
+from django.contrib import admin
 from queenbee_api.const import GenericValues, GenericStatus
 
 class GenericModel(models.Model):
@@ -10,14 +11,17 @@ class GenericModel(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     @property
+    @admin.display(description="objid")
     def uuidf(self):
         return str(self.uuid)[0:8]
     
     @property
+    @admin.display(description="Criado em:")
     def created(self):
         return self.created_at.strftime("%d/%m/%Y %H:%M")
 
     @property
+    @admin.display(description="Modific. em:")
     def updated(self):
         return self.created_at.strftime("%d/%m/%Y %H:%M")
 
@@ -25,7 +29,7 @@ class GenericModel(models.Model):
         abstract = True  
 
 class Customer(GenericModel):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, verbose_name="Nome Cliente")
     email = models.EmailField(max_length=255, blank=True, null=True)
     phone_number = models.CharField(max_length=30, blank=True, null=True)  
     instagram = models.CharField(max_length=255, blank=True, null=True)
